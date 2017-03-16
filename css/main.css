@@ -50,9 +50,7 @@ table{
 	color: #fff;
 }
 #resultDiv {
-	margin:15px 0;
-	padding:5px;
-	width:25em;
+	width:210px;
 }
 .error {
 	color:#DF0101;
