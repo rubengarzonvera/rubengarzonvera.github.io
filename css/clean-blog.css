@@ -316,7 +316,7 @@ footer .copyright {
   -ms-transition: top 0.3s ease,opacity 0.3s ease;
   transition: top 0.3s ease,opacity 0.3s ease;
 }
-.floating-label-form-group::not(:first-child) {
+.floating-label-form-group:not(:first-child) {
   padding-left: 14px;
   border-left: 1px solid #eeeeee;
 }
@@ -382,15 +382,8 @@ form .row:first-child .floating-label-form-group {
   text-shadow: none;
   background: #0085A1;
 }
-::selection {
-  color: white;
-  text-shadow: none;
-  background: #0085A1;
-}
-img::selection {
-  color: white;
-  background: transparent;
-}
+
+
 img::-moz-selection {
   color: white;
   background: transparent;

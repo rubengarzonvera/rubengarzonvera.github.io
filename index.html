@@ -11,6 +11,7 @@
 
     <title>Cv Rubén Garzón Vera Especialista GIS (Ingeniero en Geomática y Topografía)</title>
 
+    <link rel="stylesheet" href="css/main.css">
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -75,7 +76,7 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('img/fondo1.png')">
+    <header class="intro-header" style="background-image: url('img/fondo1.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -85,7 +86,7 @@
                         Estudiante de <strong>MásterGIS de Esri España</strong></h1>
                         <hr class="small">
                         <img class="foto"
-                        src="img/ruben.jpg"
+                        src="img/Ruben.jpg"
                         alt="Imagen de Rubén Garzón Vera"
                         ><br>
                         <span class="subheading">
@@ -94,11 +95,17 @@
                         Como lemas: <em>"No hay peor necio que el que no quiere escuchar"<br>
                         y "Quiso ser valeroso y aprendio a estudiar"</em><br>
                         Extremeño con residencia en Madrid<br>
-                        <strong>Es mejor que me conozcas en:</strong>
+                        <a id="pdf" href="img/CURRICULUMRUBENGARZONVERAAct.pdf"><strong>Descargar Curriculum en PDF</strong></a><br>
+                        <strong>o conóceme a través de:</strong>
                         <a href="https://es.linkedin.com/in/rubengarzonvera">
                           <img id="linkedin"
                           src="http://desarrolladores.esri.es/wp-content/plugins/floating-social-media-icon/images/themes/2/linkedin.png"
                           alt="Imagen de enlace con linkedin">
+                        </a>
+                        <a href="https://github.com/rubengarzonvera">
+                          <img
+                          src="https://octodex.github.com/images/heisencat.png"
+                          alt="Imagen de enlace con GITHUB">
                         </a>
                         </span>
                     </div>
@@ -116,9 +123,9 @@
                         <h2 class="post-title">
                             HABILIDADES Y CONOCIMIENTOS
                         </h2>
-                        <h3 class="post-subtitle">
-                            A lo largo de la vida educativa y profesional se se van adquiriendo conocimentos y habilidades para realizar ciertas tareas,
-                            en mi caso relacionadas con Topografía, Sistemas de Información Geografica, Investigación, Programacion y Automatización de tareas.
+                        <h3>
+                            A lo largo de la vida educativa y profesional se van adquiriendo conocimentos y habilidades para realizar ciertas tareas,
+                            en mi caso relacionadas con Topografía, Sistemas de Información Geográfica, Investigación, Programación y Automatización de tareas.
                         </h3>
                     </a>
                 </div>
@@ -129,8 +136,8 @@
                             FORMACIÓN
                         </h2>
                         <h3>
-                            Considero mi formacion como un camino para conseguir lo que siempre he querido que es disfrutar de investigar y aprender cosas no sabidas,
-                            para mi es una fuente de alegria ir cada dia superandome y aumentando mis conocimiento en materias como Geomática, Topografía, GIS, nuevas tecnologias...
+                            Considero mi formación como un camino para conseguir lo que siempre he querido que es disfrutar de investigar y aprender,
+                            para mí, es una fuente de alegria ir cada día superándome y aumentando mis conocimiento en materias como Geomática, Topografía, GIS, nuevas tecnologías...
                         </h3>
                     </a>
                 </div>
@@ -138,11 +145,11 @@
                 <div class="post-preview">
                     <a href="post1.html">
                         <h2 class="post-title">
-                            EXPERIENCIA PROFESIONL
+                            EXPERIENCIA PROFESIONAL
                         </h2>
-                        <h3 class="post-subtitle">
+                        <h3>
                             En este apartado me gustaria destacar que hay que luchar y nunca rendirse al perseguir el trabajo soñado, la sensación de sentirse valorado
-                            en el trabajo deseado te hace tener una vida plena laboralmente.
+                            en el trabajo te hace tener una vida plena laboralmente.
                         </h3>
                     </a>
                 </div>
@@ -152,8 +159,8 @@
                         <h2 class="post-title">
                             PERFILES SOCIALES
                         </h2>
-                        <h3 class="post-subtitle">
-                            Aqui encontraras algunas de mis redes sociales, donde puedes encontrar algunos de mis trabajos e inquietudes.
+                        <h3>
+                            Aquí encontrarás algunas de mis redes sociales, donde puedes encontrar algunos de mis trabajos e inquietudes.
                         </h3>
                     </a>
                 </div>
@@ -164,6 +171,13 @@
                             CONTACTO
                         </h2>
                     </a>
+                </div>
+                <br><br><br>
+                <div>
+                   <button type="button" id="bt" class="btn btn-default">Otros datos de interés</button>
+                </div>
+                <br>
+                <div id="resultDiv">
                 </div>
                 <!-- Pager -->
                 <ul class="pager">
@@ -187,6 +201,45 @@
             </div>
         </div>
     </footer>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="isDebug: 1, async: 1, parseOnLoad: 1"></script>
+		<script>
+			require(["dojo/dom", "dojo/on", "dojo/request", "dojo/domReady!"],
+				function(dom, on, request){
+					// Results will be displayed in resultDiv
+					var resultDiv = dom.byId("resultDiv");
+					// Attach the onclick event handler to the textButton
+					on(dom.byId('bt'), "click", function(evt){
+						// Request the text file
+						request.get("mail/contacto.txt").then(
+							function(response){
+								// Display the text file content
+								resultDiv.innerHTML = "<pre>" + response + "</pre>";
+							},
+							function(error){
+								// Display the error returned
+								resultDiv.innerHTML = "<div class=\"error\">" + error + "<div>";
+							}
+						);
+					});
+				}
+			);
+		</script>
+
+    <script>
+    var backClassElement = document.getElementsByClassName('container-fluid');
+    console.log('backClassElement = ', backClassElement);
+    </script>
+
+    <script>
+    var backClassElement = document.getElementsByClassName('intro-header');
+    console.log('backClassElement = ', backClassElement);
+    </script>
+
+    <script>
+    var backClassElement = document.getElementsByClassName('container');
+    console.log('backClassElement = ', backClassElement);
+    </script>
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>

@@ -7,7 +7,7 @@ table {
 }
 /* Zebra striping */
 tr:nth-of-type(odd) {
-  background: #6495ED;
+  background: #3CB371;
 }
 th {
   background: #333;
